@@ -12,11 +12,11 @@ let pokemonList=[
 console.log(pokemonList);
 
 //prints on screen all the Pokemon's names and height from the list
-//if height is over 2(m),add note to highlight special Pokemon
-for(i=0;i<pokemonList.length;i++){
-    if(pokemonList[i].height>1.7){
-        document.write(pokemonList[i].name+' (height:'+pokemonList[i].height+') - Wow, that\'s big!'+'<br>')
-    } else{
-        document.write(pokemonList[i].name+' (height:'+pokemonList[i].height+')'+'<br>');
+//if height is over 1.7(m),add note to highlight special Pokemon
+pokemonList.forEach(function(pokemon){
+    if(pokemon.height>1.7){
+        document.write('<p>'+pokemon.name + ' (height: ' + pokemon.height + ') - Wow, that\'s big!'+'</p>')
+    }else{
+        document.write('<p>'+pokemon.name + ' (height: ' + pokemon.height+')'+'</p>')
     }
-}
+});
