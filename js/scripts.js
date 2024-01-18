@@ -46,9 +46,9 @@ let pokemonRepository = (function () {
         //appends list item to unodered list as its child
         listedEntries.appendChild(listItem);
         //add event listener to button created-hear for 'click' and show details of selected Pokemon
-        button.addEventListener('click',showDetails);
+        button.addEventListener('click',()=>showDetails(pokemon));
     }
-
+    //print Pokemon's name to console when activated
     function showDetails(pokemon){
         console.log(pokemon.name);
     }
