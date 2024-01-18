@@ -16,7 +16,7 @@ body {
     font-family: 'Merriweather', sans-serif;
     font-weight: var(--reg-weight);
     font-size: var(--reg-text-size);
-    line-height: 2;
+    line-height: 1.6;
     margin: 20px;
 }
 
@@ -33,4 +33,38 @@ h2 {
 h3 {
     font-size: var(--h3-text-size);
     font-weight: var(--bold-weight);
+}
+
+.list-entry {
+    /*overwrite browser defaults and resets border*/
+    border: none;
+    width: 90%;
+    font-family: inherit;
+    background-color: rgb(210, 190, 245);
+    text-decoration: none;
+    display: inline-block;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    font-size: var(--reg-text-size);
+    color: var(--text-color);
+    /*add a border and shadow effect to buttons*/
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 3px 20px 0px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s;
+}
+
+.list-entry:hover,
+.list-entry:focus {
+    /*mouse appears as a hand when hovering over button*/
+    cursor: pointer;
+    /*reduce button opacity to 80%*/
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+.pokemon-list {
+    /*remove bullets from list items*/
+    list-style-type: none;
 }
