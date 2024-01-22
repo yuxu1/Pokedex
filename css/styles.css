@@ -1,0 +1,37 @@
+.navbar-title {
+    font-weight: 700px;
+    font-size: 30px;
+}
+
+.page-container {
+    margin-top: 80px;
+}
+
+body {
+    font-family: 'Merriweather', sans-serif;
+    line-height: 1.6;
+}
+
+.pokemon-button {
+    border: none;
+    font-family: inherit;
+    background-color: rgb(210, 191, 243);
+    padding: 16px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 3px 20px 0px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s;
+}
+
+.pokemon-button:hover,
+.pokemon-button:focus {
+    cursor: pointer;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+.modal-body{
+    text-align:center;
+}
