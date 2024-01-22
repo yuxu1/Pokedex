@@ -4,7 +4,7 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     //retrieve pokemon data from here
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let modalContainer = document.querySelector('#pokemonModal');
+    let modalContainer = document.querySelector('#modal-container');
 
     //retrieve whole list of Pokemon
     function getAll() {
@@ -24,15 +24,10 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let listedEntries = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
-
         //create button element for each Pokemon entry
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('btn','pokemon-button');
-        button.setAttribute('data-toggle','modal');
-        button.setAttribute('data-target','#pokemonModal');
-
+        button.classList.add('pokemon-button');
         //appends button to list item as its child
         listItem.appendChild(button);
         //appends list item to unodered list as its child
@@ -85,12 +80,13 @@ let pokemonRepository = (function () {
 
     //show modal of Pokemon details
     function showModal(pokemon) {
-        //modalContainer.innerHTML = '';
-        let modal = document.querySelector('.modal-dialog');
+        modalContainer.innerHTML = '';
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
 
         //button to close modal
         let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('btn','modal-close');
+        closeButtonElement.classList.add('modal-close');
         closeButtonElement.innerText = 'Close';
         closeButtonElement.addEventListener('click', hideModal);
 
@@ -104,8 +100,8 @@ let pokemonRepository = (function () {
         let weightElement = document.createElement('p');
         weightElement.innerText = 'Weight: '+ pokemon.weight;
 
-        let typesElement = document.createElement('p');
-        typesElement.innerText = 'Type(s): '+pokemon.types;
+        /*let typesElement = document.createElement('p');
+        typesElement.innerText = 'Type(s): '+pokemon.types;*/
 
         let imageElement = document.createElement('img');
         imageElement.src = pokemon.imageUrl;
