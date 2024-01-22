@@ -12,6 +12,10 @@ body {
     line-height: 1.6;
 }
 
+.list-group-item {
+    border: none;
+}
+
 .pokemon-button {
     border: none;
     font-family: inherit;
