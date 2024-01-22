@@ -94,9 +94,14 @@ let pokemonRepository = (function () {
             weightElement.innerText = 'Weight: ' + pokemon.weight;
 
             //show type(s) of the selected Pokemon
-            let typesElement = document.createElement('p');
-            typesElement.innerText = 'Type(s): ' + pokemon.types;
-
+            let typesElement = document.createElement('p'); 
+            let typesList=[];  
+            //retrieve name of "types" for each Pokemon into new array
+            pokemon.types.forEach((item) =>{
+                typesList.push(item.type.name);
+            })
+            typesElement.innerText = 'Type(s): ' + typesList;
+            
             //append the selected Pokemon details to modal body
             modalBody.appendChild(imageElement);
             modalBody.appendChild(heightElement);
@@ -108,15 +113,15 @@ let pokemonRepository = (function () {
     //search function to filter Pokemon (in-progress)
     let searchBar = document.querySelector('#search-bar');
     //live-search when input starts in search bar
-    searchBar.addEventListener('keyup',()=> searchPokemon(input));
+    searchBar.addEventListener('keyup',(input)=> searchPokemon(input));
     function searchPokemon(input){
         //take user input and converts to lowercase
         let inputValue = input.target.value.toLowerCase();
 
         //go through Pokemon list and check if each name has the inputted value
-        document.querySelectorAll(pokemonlist).forEach(function(pokemon){
+        document.querySelectorAll('.pokemon-list').forEach(function(pokemon){
             //display the ones that match and hide the ones that don't
-            if(pokemon.name.indexOf(inputValue) !== -1) {
+            if(loadList(pokemon).name.indexOf(inputValue) !== -1) {
                 pokemon.style.display='block';
             }else{
                 pokemon.style.display='none';
