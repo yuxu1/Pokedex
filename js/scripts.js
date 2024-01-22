@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let listedEntries = document.querySelector('.pokemon-list');
         let pokemonEntry = document.createElement('button');
-        pokemonEntry.classList.add('list-group-item', 'list-group-item-action');
+        pokemonEntry.classList.add('pokemon-button','list-group-item', 'list-group-item-action');
         pokemonEntry.innerText = pokemon.name;
         pokemonEntry.setAttribute('data-toggle', 'modal');
         pokemonEntry.setAttribute('data-target', '.modal');
@@ -103,6 +103,26 @@ let pokemonRepository = (function () {
             modalBody.appendChild(weightElement);
             modalBody.appendChild(typesElement);
         });
+    }
+
+    //search function to filter Pokemon (in-progress)
+    let searchBar = document.querySelector('#search-bar');
+    //live-search when input starts in search bar
+    searchBar.addEventListener('keyup',()=> searchPokemon(input));
+    function searchPokemon(input){
+        //take user input and converts to lowercase
+        let inputValue = input.target.value.toLowerCase();
+
+        //go through Pokemon list and check if each name has the inputted value
+        document.querySelectorAll(pokemonlist).forEach(function(pokemon){
+            //display the ones that match and hide the ones that don't
+            if(pokemon.name.indexOf(inputValue) !== -1) {
+                pokemon.style.display='block';
+            }else{
+                pokemon.style.display='none';
+            }
+        });
+
     }
 
     //return functions as keys to object pokemonRepository
