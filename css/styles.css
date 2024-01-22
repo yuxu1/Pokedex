@@ -69,11 +69,11 @@ h3 {
     list-style-type: none;
 }
 
-#modal-container {
+#pokemonModal {
     display:none;
 }
 
-#modal-container.is-visible {
+#pokemonModal.is-visible {
     position:fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -119,4 +119,8 @@ h3 {
 
 .modal p {
     margin-bottom:0;
+}
+
+.page-container {
+    margin-top:100px;
 }
